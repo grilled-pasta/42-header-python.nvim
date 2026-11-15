@@ -73,6 +73,7 @@ function M.gen_header()
   local date = os.date "%Y/%m/%d %H:%M:%S"
 
   return {
+	"#!/user/bin/env python3",
     fill_line,
     empty_line,
     M.gen_line("", ascii[1]),
