@@ -1,7 +1,7 @@
 local M = {}
 
 M.opts = {
-  length = 80,
+  length = 79,
   margin = 5,
   default_map = true,
   auto_update = true,
@@ -14,14 +14,8 @@ M.opts = {
     "  +#+  +:+       +#+     ",
     "+#+#+#+#+#+   +#+        ",
     "     #+#    #+#          ",
-    "    ###   ########.fr    ",
-  },
-  git = {
-    enabled = false,
-    bin = "git",
-    user_global = true,
-    email_global = true,
-  },
+    "    ###   ########.nl    ",
+  }
 }
 
 ---Applies the user options to the default table.

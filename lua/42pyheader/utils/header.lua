@@ -7,19 +7,18 @@
 ---@brief ]]
 
 local M = {}
-local config = require "42header.config"
-local git = require "42header.utils.git"
+local config = require "42pyheader.config"
 
 ---Get username.
 ---@return string|nil
 function M.user()
-  return vim.g.user or os.getenv("USER") or (config.opts.git.enabled and git.user()) or config.opts.user
+  return config.opts.user
 end
 
 ---Get email.
 ---@return string|nil
 function M.email()
-  return vim.g.mail or os.getenv("MAIL") or (config.opts.git.enabled and git.email()) or config.opts.mail
+  return config.opts.mail
 end
 
 ---Get left and right comment symbols from the buffer.
@@ -29,8 +28,8 @@ function M.comment_symbols()
 
   if vim.tbl_contains({ "c", "cc", "cpp", "cxx", "tpp" }, vim.bo.filetype) then
     str = "/* %s */"
-  elseif vim.bo.filetype == "openscad" then
-    str = "// %s #"
+  elseif vim.bo.filetype == "python" then
+	  str = "# %s"
   end
 
   -- Checks the buffer has a valid commentstring.
